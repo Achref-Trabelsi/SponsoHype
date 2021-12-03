@@ -1,0 +1,27 @@
+<div class="association" >
+
+  <img [src]="imageUrl">
+  <h1>Association Names</h1>
+  <p class="bio">lorem ipsum dolar amlet</p>
+</div>
+<div class="row justify-content-center" style="height: 90vh; display: flex; align-content: space-around;">
+  <div class="col-md-8 col-10">
+    <router-outlet></router-outlet>
+  </div>
+  <div class="col-md-2 col-1">
+    <p class="post" style="color: transparent">P</p>
+    <div class="menu">
+
+        <div class="dotstyle">
+          <ul>
+            <li routerLink="/sponsee-dashboard/profile" routerLinkActive="active" ><a></a> <span>Profile</span> </li>
+            <li routerLink="/sponsee-dashboard/create-event" routerLinkActive="active" *ngIf="sponseeLoggedin()"><a></a> <span>Post Event</span></li>
+            <li routerLink="/sponsee-dashboard/all-events" routerLinkActive="active" *ngIf="sponseeLoggedin()"><a></a> <span>My Events</span></li>
+            <li routerLink="/sponsee-dashboard/requests" routerLinkActive="active"><a></a>  <span>Requests</span></li>
+          </ul>
+        </div>
+
+    </div>
+  </div>
+</div>
+

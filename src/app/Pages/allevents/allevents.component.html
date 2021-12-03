@@ -1,0 +1,35 @@
+<div class="container main-page">
+    <div class="input-group rounded col-11 col-md-5 rounded">
+        <input [(ngModel)]="searchText" type="search" class="form-control search" placeholder="Search" aria-label="Search"
+          aria-describedby="search-addon" />
+          <i class="fas fa-search"></i>
+      </div>
+    <div class="row">
+      <h3 class="col-12">Recommanded :</h3>
+        <div class="col-sm-8 events">
+            <div *ngFor="let projet of projects | eventSearch: searchText" class="card" style="margin: 4%;">
+                <div class="row no-gutters">
+                    <div class="col-sm-3" style="background: transparent; margin: 6vh 2vw">
+                        <img src="assets/Image/event.jpg" class="card-img-top h-100" alt="...">
+                    </div>
+                    <div class="col-sm-7" style="align-self: center">
+                        <div class="card-body">
+                            <h5 class="card-title">{{projet.nom}}</h5>
+                            <p class="card-text">{{projet.details}}</p>
+                            <a href="#" class="btn btn-primary stretched-link check-event">Check event</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3" style="padding-top: 3.5vh;">
+            <div class="d-none d-lg-block" id="accordeon">
+                <div class="card" style="height: 86.5vh">
+                  <div class="card-body">
+                    <h4 class="card-title" style="color: #9CACE1">Filter By</h4>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>

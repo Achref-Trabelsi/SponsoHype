@@ -1,0 +1,91 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" class="row col-12 col-md-10 " style="justify-content: flex-end">
+  <div class="col-12 col-md-6" style="padding: 1vh 1vw">
+    <div class="col-12">
+      <label>Your name *</label>
+      <input type="text" class="form-control" placeholder="Company Name" name="name" style="background-color: transparent"
+             formControlName="name" >
+      <p class="error" *ngIf="name!.hasError('required') && name!.touched "> This Field is required </p>
+    </div>
+    <div class="col-12">
+      <label>Your email *</label>
+      <input type="text" class="form-control" placeholder="youremail@email.com" name="email"
+             formControlName="email" style="background-color: transparent" >
+      <p class="error" *ngIf="email!.hasError('required') &&  email!.touched "> This Field is required </p>
+      <span class="error" *ngIf="email!.hasError('email') &&  email!.touched "> Please enter a valid email  </span>
+    </div>
+    <div class="row col-12" style="margin-left: 0px; margin-right: 0px; justify-content: space-between">
+      <div id="dom" style="">
+        <label>Domain *</label>
+        <input
+          class="form-control"
+          name="domaine"
+          formControlName="domaine"
+          placeholder="Enter a domain"
+          style="background-color: transparent"
+          [matAutocomplete]="auto">
+
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let domain of filteredDomains | async" [value]="domain">
+            {{domain}}
+          </mat-option>
+        </mat-autocomplete>
+        <p class="error" *ngIf="domaine!.hasError('required') && domaine!.touched "> This Field is required </p>
+      </div>
+    </div>
+
+    <div style="padding: 2vh 0vh">
+        <label>Interests *</label>
+        <mat-chip-list #chipList aria-label="Interest selection" formControlName="interest" class="form-control" style="height: fit-content">
+          <mat-chip
+            *ngFor="let interest of interests"
+            [selectable]="selectable"
+            [removable]="removable"
+            (removed)="remove(interest)">
+            {{interest}}
+            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+          </mat-chip>
+          <input
+            id="chipsInput"
+            placeholder="Enter to add a new interest .. "
+            #interestInput
+            [matAutocomplete]="autoChip"
+            [matChipInputFor]="chipList"
+            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+            (matChipInputTokenEnd)="add($event)">
+
+        </mat-chip-list>
+        <mat-autocomplete #autoChip="matAutocomplete" (optionSelected)="selected($event)">
+          <mat-option *ngFor="let interest of filteredInterests | async" [value]="interest">
+            {{interest}}
+          </mat-option>
+        </mat-autocomplete>
+      <p class="error" *ngIf="!interests.length && interest!.touched "> This Field is required </p>
+    </div>
+    <p>If you have an account <a style="color:#5936f9" href="/login">Log In</a></p>
+  </div>
+  <div class="col-12 col-md-6 " style="padding-top: 1vh">
+    <div class="col-12 ">
+      <label>Description *</label>
+      <textarea  class="form-control" formControlName="description" name="description"
+                aria-label="With textarea" placeholder="a small description of the company .."></textarea>
+      <p class="error" *ngIf="description!.hasError('required') && description!.touched"> This Field is required </p>
+    </div>
+    <div class="col-12">
+      <label>Password</label>
+      <input class="form-control" formControlName="password" name="password" aria-label="With textarea" placeholder="*******" type="password">
+      <span class="error" *ngIf="password!.hasError('required') && password!.touched  "> This Field is required </span>
+    </div>
+    <div class="col-12">
+      <label>Confirm Password *</label>
+      <input class="form-control" formControlName="cpassword" name="cpassword" aria-label="With textarea" placeholder="*******" type="password">
+      <p class="error" *ngIf="cpassword!.hasError('required') && cpassword!.touched "> This Field is required </p>
+      <div *ngIf="formGroup.errors && cpassword!.touched">
+        <p class="error" *ngIf="formGroup.errors!.password_invalid">Password should match</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-auto">
+    <button type="submit" class="btn" [disabled]="formGroup.invalid">Sign Up</button>
+  </div>
+</form>
+

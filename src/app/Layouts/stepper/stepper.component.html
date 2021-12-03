@@ -1,0 +1,36 @@
+<mat-horizontal-stepper
+  labelPosition="bottom"
+  style="background-color: transparent;margin-top: -2.56em;padding: 0em 6vw;" linear>
+  <mat-step label="General Info">
+    <app-step-one-form (notify)="submit1($event)">
+      <div class="col-12 col-md-12 text-right">
+        <button mat-button matStepperNext class="btn">Next</button>
+      </div>
+    </app-step-one-form>
+  </mat-step>
+
+  <mat-step label="Specific Info">
+    <app-step-two-form (notify)="submit2($event)">
+      <div class="row col-12 justify-content-between" style="margin-right: 0; margin-left: 0; padding-right: 0; padding-left: 0">
+        <button mat-button matStepperPrevious class="btn">Back</button>
+        <button mat-button matStepperNext class="btn">Next</button>
+      </div>
+    </app-step-two-form>
+
+  </mat-step>
+  <mat-step label="Account Info">
+    <app-step-three-form class="row justify-content-center" (notify)="submit3($event)">
+      <div class="row col-12 justify-content-between" style="margin-right: 0; margin-left: 0; padding-right: 0; padding-left: 0">
+        <button mat-button matStepperPrevious class="btn">Back</button>
+        <button mat-button matStepperNext class="btn">Next</button>
+      </div>
+    </app-step-three-form>
+
+  </mat-step>
+  <mat-step label="Done" editable="false" state="crown">
+    <app-step-four-form></app-step-four-form>
+  </mat-step>
+  <ng-template matStepperIcon="crown">
+    <i class="fas fa-crown" style="font-size: 0.75em;"></i>
+  </ng-template>
+</mat-horizontal-stepper>

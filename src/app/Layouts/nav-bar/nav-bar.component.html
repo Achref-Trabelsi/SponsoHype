@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="nav" [ngClass]="{'scrolled': scrolled}">
+
+  <a class="navbar-brand" href="#"><img src="assets/Image/logo-01.svg" alt="Logo"> SponsoHype</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/">Home<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/about-us">About Us</a>
+      </li>
+      <li class="nav-item " *ngIf="sponseeLoggedin()">
+        <a class="nav-link " routerLink="/about-us">Sponsors</a>
+      </li>
+      <li class="nav-item" *ngIf="sponsorLoggedin()">
+        <a class="nav-link sponsor" routerLink="/all-events">Events</a>
+      </li>
+      <li class="nav-item dropdown" id="common" *ngIf="sponseeLoggedin() || sponsorLoggedin()">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Profile
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu " aria-labelledby="navbarDropdownMenuLink" style="background-color: rgba(47,34,51,0.8)">
+          <li><a href="/sponsee-dashboard" class="nav-link ">Profile</a></li>
+          <li><a href="/sponsee-dashboard/create-event" class="nav-link sponsee" *ngIf="sponseeLoggedin()">Post Event</a></li>
+          <li><a href="/sponsee-dashboard/all-events" class="nav-link sponsee" *ngIf="sponseeLoggedin()">My Events</a></li>
+          <li><a href="/sponsee-dashboard" class="nav-link">Requests</a></li>
+        </ul>
+      </li>
+      <li class="nav-item connect" *ngIf="!sponseeLoggedin() && !sponsorLoggedin()">
+        <a class="nav-link" href="/login">Sign in</a>
+      </li>
+      <li class="nav-item connect" *ngIf="!sponseeLoggedin() && !sponsorLoggedin()">
+        <a href="/sign-up" type="button" class="btn btn-outline-light">Sign up</a>
+      </li>
+      <li class="nav-item " id="logout" *ngIf="sponseeLoggedin() || sponsorLoggedin()">
+        <button type="button" class="btn btn-outline-light" (click)="logout()">Sign out</button>
+      </li>
+    </ul>
+
+  </div>
+</nav>

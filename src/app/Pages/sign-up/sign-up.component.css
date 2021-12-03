@@ -1,0 +1,33 @@
+.all{
+  text-align: -webkit-center;
+  height: 100%;
+}
+.logindiv{
+  display: flex;
+  align-items: center;
+  background-color: #38363B;
+  border-radius: 18px;
+  margin-top: 13vh;
+  background-size: cover;
+  margin-bottom: 5vh;
+}
+h2{
+  color: white;
+  font-family: Montserrat;
+  margin-top: 5vh;
+  /*font-size: xxx-large;*/
+}
+
+@media screen and (max-width: 1100px){
+  .all{
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 99vh;
+    width: -webkit-fill-available;
+  }
+  .logindiv{
+    justify-content: center;
+  }
+}

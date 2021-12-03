@@ -1,0 +1,35 @@
+input , textarea, input:focus, textarea:focus {
+  background-color: transparent;
+  color: #FFFFFF;
+}
+input:-webkit-autofill{
+  -webkit-box-shadow: 0 0 0px 1000px #211F23 inset;
+  -webkit-text-fill-color: #FFFFFF;
+
+}
+
+textarea {
+  height:10em;
+}
+
+button{
+  background-color: #5f2f69;
+  width: fit-content;
+  padding: 1vh 2vw;
+  color: #FFFFFF;
+}
+
+label {
+  color: #FFFFFF;
+  font-family: Montserrat;
+}
+
+.error{
+  color: #B2458A;
+}
+
+.col-auto {
+  text-align: right;
+  padding-right: 0;
+  padding-top: 3vh;
+}

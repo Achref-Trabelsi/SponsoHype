@@ -1,0 +1,19 @@
+img {
+  width: 1.5em;
+  margin-right: 0.5em;
+}
+nav{
+  padding: 3vh 10vw;
+  width:100vw;
+}
+.nav-link{
+  margin: 0em 2em;
+}
+.btn-outline-light {
+  margin-left: 2em ;
+}
+
+.fixed-top.scrolled {
+   background-color: rgba(0,0,0,0.8) !important;
+   transition: background-color 200ms linear;
+ }

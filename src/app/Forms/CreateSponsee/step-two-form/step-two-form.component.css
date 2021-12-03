@@ -1,0 +1,80 @@
+input , textarea, input:focus, textarea:focus {
+  background-color: transparent;
+  color: #FFFFFF;
+}
+input:-webkit-autofill{
+  -webkit-box-shadow: 0 0 0px 1000px #211F23 inset;
+  -webkit-text-fill-color: #FFFFFF;
+
+}
+
+textarea {
+  height:7.5em;
+}
+
+button{
+  border: 1px solid #BA5AAC;
+  color: #BA5AAC;
+  background-color: transparent;
+  padding: 1vh 2vw;
+  width: 12vw;
+}
+
+label {
+  color: #FFFFFF;
+  font-family: Montserrat;
+}
+
+.error{
+  color: #B2458A;
+}
+
+.col-auto {
+  text-align: right;
+  padding-right: 0;
+  padding-top: 3vh;
+}
+
+body {
+  display: flex;
+}
+
+.file_input_div {
+  margin: auto;
+  width: 250px;
+  height: 40px;
+}
+
+.file_input {
+  float: left;
+}
+
+#file_input_text_div {
+  width: 200px;
+  margin-top: -8px;
+  margin-left: 5px;
+}
+
+.none {
+  display: none;
+}
+option{
+  color: #FFFFFF;
+  background-color: #2a2a2a;
+}
+
+select option[selected] {
+  color: white;
+}
+p{
+  color: #706F72;
+  margin-bottom: 0.4vh;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 14vh;
+}

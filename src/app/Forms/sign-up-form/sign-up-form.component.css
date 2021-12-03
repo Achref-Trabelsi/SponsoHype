@@ -1,0 +1,87 @@
+form{
+  text-align: left;
+
+}
+
+input:-webkit-autofill, select:focus{
+  -webkit-box-shadow: 0 0 0px 1000px #38363B inset;
+  -webkit-text-fill-color: #FFFFFF;
+}
+
+#chipsInput, #chipsInput:focus{
+  outline: none;
+  border: none;
+  font-family: 'Roboto';
+  display: block;
+  padding: .375rem .75rem;
+  font-size: 0.95em;
+  font-weight: 200;
+  line-height: 1.5;
+  opacity: 0.7;
+}
+.fa {
+  color: #FFFFFF ;
+}
+
+input, textarea, mat-chip-list , mat-chip-list:focus , input:focus, textarea:focus {
+  background-color: transparent;
+  color: #FFFFFF;
+
+}
+textarea {
+  height:19.5vh;
+}
+
+.col-12{
+  padding: 2vh 0vw;
+}
+
+p, a{
+  color: #C8C7C8;
+  font-family: Montserrat;
+  font-size: small;
+}
+a{
+  text-decoration: underline;
+}
+
+button{
+  background-color: transparent;
+  width: fit-content;
+  padding: 1vh 2vw;
+  border-color:#E699DC ;
+  border-style: solid;
+  border-width: 0.1em;
+  color: #E699DC;
+}
+
+label {
+  color: #FFFFFF;
+  font-family: Montserrat;
+}
+
+#dom{
+  width: -webkit-fill-available;
+}
+
+.error{
+  color: #f3b9b9;
+  position: absolute;
+  font-family: sans-serif;
+  font-size: small;
+  margin: 0.3em 0em;
+}
+
+.col-auto {
+  text-align: right;
+  padding-right: 0;
+  padding-top: 0vh;
+}
+option{
+  color: darkgrey;
+  background-color: transparent;
+}
+
+select option[selected] {
+  color: white;
+}

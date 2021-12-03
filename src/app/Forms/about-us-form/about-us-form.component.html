@@ -1,0 +1,19 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()">
+
+  <div class=" mb-3">
+    <label>Your email</label>
+    <input type="text" class="form-control" placeholder="youremail@email.com" name="email" aria-describedby="basic-addon1"
+    formControlName="email" (click)="logEmail()" style="background-color: #211F23">
+    <p class="error" *ngIf="email!.hasError('required') && email!.touched"> This Field is required </p>
+    <span class="error" *ngIf="email!.hasError('email') && email!.touched"> Please enter a valid email  </span>
+  </div>
+
+  <div class=" mb-3">
+    <label>Message</label>
+    <textarea (click)="logMessage()" class="form-control" formControlName="message" name="message" aria-label="With textarea" placeholder="Write anything..."></textarea>
+    <span class="error" *ngIf="message!.hasError('required') && message!.touched"> This Field is required </span>
+  </div>
+  <div class="col-auto">
+    <button type="submit" class="btn" [disabled]="formGroup.invalid">Send</button>
+  </div>
+</form>

@@ -1,0 +1,81 @@
+.container{
+    padding: 15vh 1em;
+    width:83vw;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+.rounded {
+  align-self: start;
+  background-color: transparent;
+  border-style: solid;
+  border-color: #616161;
+  margin-left: 2vw;
+}
+
+h3{
+  color: white;
+  align-self: start;
+  padding: 5vh 3.2vw;
+  font-size: 220%;
+  font-family: 'Montserrat';
+}
+
+i{
+  color: #616161;
+  align-self: center;
+}
+
+.search{
+  border-style: none;
+  background-color: transparent;
+}
+
+.card{
+  background-color: #333134;
+  border-radius: 0;
+  border: 1px solid rgba(79,77,80,1);
+}
+
+.card-header a:after {
+    content:"\e114";
+}
+
+.card-header a.collapsed:after {
+    content:"\e080";
+}
+
+.events{
+    height: 90vh;
+    overflow-y: scroll;
+}
+
+.events::-webkit-scrollbar{
+    display: none;
+}
+
+.card-title{
+    color: white;
+    font-family: 'Montserrat';
+}
+
+.card-text{
+    font-size: small;
+    font-family: 'Montserrat';
+    color: white;
+    line-height: 1.2em;
+    height: 2.4em;
+    overflow: hidden;
+}
+
+.check-event{
+    background: linear-gradient(0.25turn, #637296, #5F2D68);
+    color: white;
+    border-style: none;
+    border-radius: 0;
+}
+
+#accordeon{
+  height: 86.5vh;
+}

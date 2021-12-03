@@ -1,0 +1,20 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()">
+
+  <div class="col-12">
+    <label>Your email</label>
+    <input type="text" class="form-control" placeholder="youremail@email.com" name="email"
+           formControlName="email" >
+    <p class="error" *ngIf="email!.hasError('required') && email!.touched"> This Field is required </p>
+    <span class="error" *ngIf="email!.hasError('email') && email!.touched"> Please enter a valid email  </span>
+  </div>
+
+  <div class="col-12">
+    <label>Password</label>
+    <input class="form-control" formControlName="password" name="password" aria-label="With textarea" placeholder="*******" type="password">
+    <span class="error" *ngIf="password!.hasError('required') && password!.touched"> This Field is required </span>
+    <p style="margin-top: 0.6em ; font-size: 0.85em;">If you don't have an account <a style="color:#5936f9" href="/sign-up">Register Now</a></p>
+  </div>
+  <div class="col-auto">
+    <button type="submit" class="btn" [disabled]="formGroup.invalid">Sign In</button>
+  </div>
+</form>

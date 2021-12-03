@@ -1,0 +1,120 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" class="row">
+
+  <div class=" mb-3 col-12 col-md-6" style="margin-right: 1vw">
+    <label>Event name</label>
+    <p>Make your event recognisable by giving it a name</p>
+    <input type="text" class="form-control" placeholder="event name" name="name" aria-describedby="basic-addon1"
+           formControlName="name" (click)="logName()" style="background-color: #211F23">
+    <p class="error" *ngIf="name!.hasError('required') && name!.touched"> This Field is required </p>
+  </div>
+  <div class=" mb-3 col-12 col-md-6">
+    <label>Event start date</label>
+    <input type="date" class="form-control" placeholder="dd/mm/yyy" name="startdate" aria-describedby="basic-addon1"
+           formControlName="startdate" (click)="logDate()" style="background-color: #211F23">
+    <p class="error" *ngIf="startdate!.hasError('required') && startdate!.touched"> This Field is required </p>
+    <span class="error" *ngIf="startdate!.touched && startdate!.invalid"> Please enter a valid date </span>
+  </div>
+  <div class=" mb-3 col-12 col-md-6">
+    <label>Event start time</label>
+    <input type="time" class="form-control" placeholder="hh:mm" name="starttime" aria-describedby="basic-addon1"
+           formControlName="starttime" (click)="logName()" style="background-color: #211F23">
+    <p class="error" *ngIf="starttime!.hasError('required') && starttime!.touched"> This Field is required </p>
+  </div>
+  <div class=" mb-3 col-12 col-md-6">
+    <label>Event end date</label>
+    <input type="date" class="form-control" placeholder="dd/mm/yyy" name="enddate" aria-describedby="basic-addon1"
+           formControlName="enddate" (click)="logName()" style="background-color: #211F23">
+    <div *ngIf="formGroup.errors && enddate!.touched">
+      <p class="error" *ngIf="enddate!.hasError('required')"> This Field is required </p>
+      <p class="error" *ngIf="enddate!.invalid"> Please enter a valid date </p>
+      <span class="error" *ngIf="formGroup.errors!.duration_invalid">End date should be after the start date</span>
+    </div>
+  </div>
+  <div class=" mb-3 col-12 col-md-6">
+    <label>Event end time</label>
+    <input type="time" class="form-control" placeholder="hh:mm" name="endtime" aria-describedby="basic-addon1"
+           formControlName="endtime" (click)="logName()" style="background-color: #211F23">
+    <p class="error" *ngIf="endtime!.hasError('required') && endtime!.touched"> This Field is required </p>
+    <div *ngIf="formGroup.errors && endtime!.touched" style="margin:0">
+      <p class="error" *ngIf="formGroup.errors!.one_day_event_invalid"> Your event should begin before it ends </p>
+    </div>
+  </div>
+  <div class=" mb-3 col-12 col-md-6" style="margin-right: 1vw">
+    <label>Domain</label>
+    <p>Select an existing domain or add your own </p>
+    <select class="form-control" name="domaine" formControlName="domaine" (click)="logDomain()"
+            style="background-color: #211F23">
+      <option>IT</option>
+      <option>Environment</option>
+      <option>SSport</option>
+      <option>Add</option>
+    </select>
+    <p class="error" *ngIf="domaine!.hasError('required') && domaine!.touched"> This Field is required </p>
+  </div>
+  <div class="mb-3 col-12 col-md-5" style="display: none" id="adding">
+    <label>New Domain</label>
+    <p>Write the name of the new domain </p>
+    <input type="text" class="form-control" placeholder="new domaine" name="newdomaine" formControlName="newdomaine"
+           aria-describedby="basic-addon1"
+           (click)="logName()" style="background-color: #211F23">
+  </div>
+
+  <div class=" mb-3 col-12 col-md-6" style="margin-right: 1vw">
+    <label>Place</label>
+    <input type="text" class="form-control" placeholder="place" name="place" aria-describedby="basic-addon1"
+           formControlName="place" (click)="logName()" style="background-color: #211F23">
+    <p class="error" *ngIf="place!.hasError('required') && place!.touched"> This Field is required </p>
+  </div>
+  <div class=" mb-3 col-12 col-md-6" id="newlink">
+    <label>Internal partner</label>
+    <p>Partners from within our platform</p>
+
+    <div class="input-group">
+      <div class="input-group-prepend text-right" style="width: 13.5%; display: block;margin: 0.5vh 0vw">
+        <a class="input-group-text" id="inputGroupPrepend2" (click)="addI()">+</a>
+      </div>
+      <div id="newlinktpl" style="width: 86.5%;">
+        <select class="form-control" name="Ipartners" (click)="logName()"
+                style="background-color: #211F23; margin: 0.5vh 0vw">
+          <option>UNICEF</option>
+          <option>SPARK</option>
+          <option>CINE</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class=" mb-3 col-12 col-md-6" id="newlinkE">
+    <label>External partner</label>
+    <p>Said who? Never heard about them</p>
+
+    <div class="input-group">
+      <div class="input-group-prepend" style="width: 13.5%; display: block; margin: 0.5vh 0vw">
+        <span class="input-group-text" (click)="addE()">+</span>
+      </div>
+      <div id="newlinktplE" style="width: 86.5%; ">
+        <input type="text" class="form-control" placeholder="Partner Name" name="Epartners"
+               aria-describedby="basic-addon1"
+               (click)="logName()" style="background-color: #211F23; margin: 0.5vh 0vw">
+      </div>
+    </div>
+
+  </div>
+  <div class=" mb-3 col-12 col-md-10">
+    <label>Detais</label>
+    <textarea (click)="logMessage()" class="form-control" formControlName="details" name="details"
+              aria-label="With textarea" placeholder="a small description of the event .."></textarea>
+    <p class="error" *ngIf="details!.hasError('required') && details!.touched"> This Field is required </p>
+  </div>
+  <div class=" mb-3 col-12 col-md-6" style="margin-right: 1vw">
+    <label>Money needed</label>
+    <p>Suggest an amount, we'll see what we can do ;)</p>
+    <input type="number" class="form-control" placeholder="Anter an amount" name="amount"
+           aria-describedby="basic-addon1"
+           formControlName="amount" (click)="logName()" style="background-color: #211F23">
+    <p class="error" *ngIf="amount!.hasError('required') && amount!.touched"> This Field is required </p>
+  </div>
+
+  <div class="col-12 text-right">
+    <button type="submit" class="btn" [disabled]="formGroup.invalid">Send</button>
+  </div>
+</form>

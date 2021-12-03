@@ -1,0 +1,20 @@
+.jumbotron{
+  background-color: #322337;
+  margin-bottom: 0;
+}
+
+h5,h2 {
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.title-1{
+  font-weight: bold;
+  font-size: 1.5em;
+  margin-left: 2em;
+}
+
+.title-2{
+  font-size: 1.2em;
+  margin-left: 2.45em;
+}

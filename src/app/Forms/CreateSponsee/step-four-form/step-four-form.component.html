@@ -1,0 +1,19 @@
+<div class="row justify-content-center">
+  <span class="material-icons" style="font-size: 8em; color:#08ee8a; margin:0.3em">verified</span>
+</div>
+<div class="row justify-content-center" style="text-align: center">
+  <p class="col-10" style="margin: 0em 2em"> You can get the "Verified" badge by sending us a legal justification of your existence via email to sponsohype99@gmail.com or simply upload it here </p>
+
+  <label for="fileInput" style="color: white; margin: 2em 2em 0em 2em">
+    <span class="material-icons attached">attach_file</span>
+    Upload your files </label>
+  <input type="file" id="fileInput" placeholder="choose a file" style="color: white" (change)="onFileSelected($event)" multiple>
+
+  <div class="col-12" style="margin-top: 1vh; margin-bottom: 2vh" >
+    <span style="color: white" *ngFor="let file of filesNames"> {{ file }}&nbsp;&nbsp;</span>
+  </div>
+</div>
+<div class="row col-12 justify-content-between" style="padding-left: 0; padding-right: 0; margin-right: 0; margin-left: 0">
+  <a class="btn" type="button" class="btn" href="/">No thanks</a>
+  <button type="button" class="btn" (click)="onUpload()" [disabled]="!filesNames.length">Upload</button>
+</div>

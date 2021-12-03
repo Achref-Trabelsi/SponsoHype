@@ -1,0 +1,42 @@
+ <form [formGroup]="formGroup" style="margin-top: 2vh">
+      <div class="col-11 col-md-5">
+        <div class=" mb-3 col-12" style="padding: 1vh 0px">
+          <label>Your Domain</label>
+          <p>Select an existing domain or add your own </p>
+          <select class="form-control" name="domaine" formControlName="domaine" (click)="logDomain()"
+                  style="background-color: #211F23">
+            <option>IT</option>
+            <option>Environment</option>
+            <option>SSport</option>
+            <option>Add</option>
+          </select>
+          <p class="error" *ngIf="domaine!.hasError('required') && domaine!.touched"> This Field is required </p>
+        </div>
+        <div class="mb-3 col-12 " style="padding: 1vh 0px; display: none" id="adding">
+          <label>New Domain</label>
+          <p>Write the name of the new domain </p>
+          <input type="text" class="form-control" placeholder="new domaine" name="newdomaine" formControlName="newdomaine"
+                 aria-describedby="basic-addon1"
+                  style="background-color: #211F23">
+        </div>
+        <div class=" mb-3">
+          <label>Your Description</label>
+          <textarea  class="form-control" formControlName="description" name="description" aria-label="With textarea" placeholder="Who are you?"></textarea>
+          <span class="error" *ngIf="description!.hasError('required') && description!.touched"> This Field is required </span>
+          <p>Make your description specific to you and not boring...</p>
+        </div>
+<!--        <div class="row col-12" style="justify-content: space-between;margin: 2vh 0px;">-->
+
+<!--            <button type="submit" class="btn" [disabled]="formGroup.invalid">Previous</button>-->
+
+<!--            <button type="submit" class="btn" [disabled]="formGroup.invalid">Next</button>-->
+
+<!--        </div>-->
+        <div class="col-12" (click)="onSubmit()" style="margin-right: 0; margin-left: 0; padding-right: 0; padding-left: 0">
+          <ng-content></ng-content>
+        </div>
+
+      </div>
+
+  </form>
+

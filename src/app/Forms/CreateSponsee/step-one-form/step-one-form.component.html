@@ -1,0 +1,68 @@
+<form [formGroup]="formGroup">
+  <div class="row justify-content-center align-content-center" style="margin-top: 2vh">
+    <div class="col-11 col-md-5 ">
+      <label class="col-12" style="padding-left: 0px">Type :</label>
+      <div class="row" style="padding-left: 15px; margin-bottom: 4vh">
+        <div class="custom-control custom-radio col-12 col-md-5">
+          <input type="radio" class="custom-control-input" id="defaultInline1" name="type" value="Organization" formControlName="type" (focusout)="logType()">
+          <label class="custom-control-label" for="defaultInline1">Organization</label>
+        </div>
+
+        <div class="custom-control custom-radio col-12 col-md-5">
+          <input type="radio" class="custom-control-input" id="defaultInline2" value="Club" name="type"  (focusout)="logType()" formControlName="type">
+          <label class="custom-control-label" for="defaultInline2">University club</label>
+        </div>
+      </div>
+      <div class=" mb-3" style="margin-top: 2vh">
+        <label>University Name :</label>
+        <input type="text" class="form-control" placeholder="INSAT" name="uni" id="uni" aria-describedby="basic-addon1"
+               formControlName="uni" style="background-color: #211F23" [attr.disabled]="disabled?'':null">
+      </div>
+      <div class=" mb-3">
+        <label>Organization/University club Name :</label>
+        <input type="text" class="form-control" placeholder="SponsoHype" name="name" aria-describedby="basic-addon1"
+               formControlName="name" style="background-color: #211F23">
+        <p class="error" *ngIf="name!.hasError('required') && name!.touched"> This Field is required </p>
+      </div>
+
+    </div>
+    <div class="col-12 col-md-5">
+      <div class="row col-12" style="padding-left: 0; padding-right: 0; margin-right: 0; margin-left: 0">
+
+        <div class=" mb-3 col-md-6" style="margin-bottom: 0!important;">
+          <label>Your Logo :</label>
+          <label for="fileInput" class="att col-12" style="color: white;padding-left: 0; padding-right: 0; margin-right: 0; margin-left: 0" >
+            <span class="material-icons attached">attach_file</span>
+            Upload your logo </label>
+          <input type="file" id="fileInput" placeholder="choose a file" style="color: white" (change)="onFileSelected($event)" >
+
+          <div class="col-12" style="margin-top: 1vh; margin-bottom: 2vh;padding-left: 0;overflow: hidden;font-size: 0.8em;" >
+            <span style="color: white" > {{ logo }}&nbsp;&nbsp;</span>
+          </div>
+        </div>
+        <div class=" mb-3 col-12 col-md-6">
+          <label>Your Cover Picture :</label>
+          <label for="coverInput" class="att col-12" style="color: white;padding-left: 0; padding-right: 0; margin-right: 0; margin-left: 0" >
+            <span class="material-icons attached">attach_file</span>
+            Upload your cover </label>
+          <input type="file" id="coverInput" placeholder="choose a file" style="color: white" (change)="onCoverSelected($event)" >
+
+          <div class="col-12" style="padding-left: 0;overflow: hidden;font-size: 0.8em;margin-top: 1vh; margin-bottom: 2vh" >
+            <span style="color: white" > {{ cover }}&nbsp;&nbsp;</span>
+          </div>
+        </div>
+      </div>
+      <div class=" mb-3 col-12">
+        <label>Your Slogan</label>
+        <textarea  class="form-control" formControlName="slogan" name="slogan" aria-label="With textarea" placeholder="It's never too late to be cheezy..."></textarea>
+        <p class="error" *ngIf="slogan!.hasError('required') && slogan!.touched"> This Field is required </p>
+      </div>
+    </div>
+
+    <div class="col-10" (click)="onSubmit()">
+      <ng-content></ng-content>
+    </div>
+
+  </div>
+
+</form>

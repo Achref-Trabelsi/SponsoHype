@@ -1,0 +1,58 @@
+input , textarea, input:focus, textarea:focus, select {
+  background-color: transparent;
+  color: #FFFFFF;
+}
+input:-webkit-autofill, select:focus{
+  -webkit-box-shadow: 0 0 0px 1000px #211F23 inset;
+  -webkit-text-fill-color: #FFFFFF;
+
+}
+
+textarea {
+  height:10em;
+}
+
+button{
+  background-color: #5f2f69;
+  width: fit-content;
+  padding: 1vh 2vw;
+  color: #FFFFFF;
+}
+
+label {
+  color: #FFFFFF;
+  font-family: Montserrat;
+  margin-top: 1vh;
+}
+
+.error{
+  color: #B2458A;
+}
+
+.col-auto {
+  text-align: right;
+  padding-right: 0;
+  padding-top: 3vh;
+}
+
+p{
+  color: #706F72;
+  margin-bottom: 0.4vh;
+}
+input[type="date"]::-webkit-calendar-picker-indicator , input[type="time"]::-webkit-calendar-picker-indicator{
+  cursor: pointer;
+  filter: invert(0.8);
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator:hover, input[type="time"]::-webkit-calendar-picker-indicator {
+  opacity: 1
+}
+
+option{
+  color: #FFFFFF;
+  background-color: #2a2a2a;
+}
+
+select option[selected] {
+  color: white;
+}

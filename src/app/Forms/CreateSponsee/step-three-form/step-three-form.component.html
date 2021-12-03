@@ -1,0 +1,70 @@
+<form [formGroup]="formGroup" class="row col-12 col-md-10 " style="justify-content: flex-end">
+  <div class="col-12 col-md-6" style="padding: 1vh 1vw">
+    <!-- email field -->
+    <div class="col-12">
+      <label>Your email *</label>
+      <input type="text" class="form-control" placeholder="youremail@email.com" name="email"
+             formControlName="email" style="background-color: transparent">
+      <p class="error" *ngIf="email!.hasError('required') &&  email!.touched "> This Field is required </p>
+      <span class="error" *ngIf="email!.hasError('email') &&  email!.touched "> Please enter a valid email  </span>
+    </div>
+
+    <!-- RIB field -->
+    <div class="row col-12" style="margin-left: 0px; margin-right: 0px; justify-content: space-between">
+      <div id="dom" style="">
+        <label>RIB *</label>
+        <input
+          class="form-control"
+          name="rib"
+          formControlName="rib"
+          placeholder="Enter your RIB"
+          style="background-color: transparent">
+
+        <p class="error" *ngIf="rib!.hasError('required') && rib!.touched "> This Field is required </p>
+
+        <p> We will need your bank account RIB so that the sponsor can transfer the amount of money agreed on via our
+          plateform </p>
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="col-12 col-md-6 " style="padding-top: 1vh">
+    <!-- password field -->
+    <div class="col-12">
+      <label>Password</label>
+      <input class="form-control" formControlName="password" name="password" aria-label="With textarea"
+             placeholder="*******" type="password">
+      <span class="error" *ngIf="password!.hasError('required') && password!.touched  "> This Field is required </span>
+    </div>
+
+    <!-- password confirmation field -->
+    <div class="col-12">
+      <label>Confirm Password *</label>
+      <input class="form-control" formControlName="cpassword" name="cpassword" aria-label="With textarea"
+             placeholder="*******" type="password">
+      <p class="error" *ngIf="cpassword!.hasError('required') && cpassword!.touched "> This Field is required </p>
+      <div *ngIf="formGroup.errors && cpassword!.touched">
+        <p class="error" *ngIf="formGroup.errors!.password_invalid">Password should match</p>
+      </div>
+    </div>
+
+    <!-- phone number field -->
+    <div class="col-12">
+      <label>Phone number *</label>
+      <input class="form-control" formControlName="phone" name="phone" aria-label="With textarea"
+             placeholder="Enter your phone number" type="text">
+      <p class="error" *ngIf="phone!.hasError('required') && phone!.touched "> This Field is required </p>
+    </div>
+
+
+  </div>
+  <div class="col-12" (click)="onSubmit()" style="margin-left: 1vw ">
+    <ng-content></ng-content>
+  </div>
+<!--  <div class="col-auto">-->
+<!--    <button type="submit" class="btn" [disabled]="formGroup.invalid">Sign Up</button>-->
+<!--  </div>-->
+</form>
+

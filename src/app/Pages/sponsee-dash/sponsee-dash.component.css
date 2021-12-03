@@ -1,0 +1,122 @@
+.association{
+  background-color: #2c2c31;
+  z-index: -2;
+  text-align: left;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  align-items: baseline;
+  padding: 1vh 10vw;
+  height: 33vh;
+  overflow: hidden;
+  position: relative;
+}
+
+img{
+  opacity: 57%;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: auto;
+  z-index: -1;
+  margin-top: -81px;
+}
+
+h1{
+  font-weight: bold;
+  font-family: Montserrat;
+  color: #FFFFFF;
+}
+
+.bio {
+  color: #FFFFFF;
+  font-family: Montserrat;
+  font-size: medium;
+}
+
+.menu{
+  height: 90%;
+  display: flex;
+  align-items: center;
+}
+.post{
+  font-family: Montserrat;
+  color: #9E9E9F;
+  font-size: larger;
+}
+
+
+.row {
+  height:90vh;
+  padding: 5vh;
+}
+
+@media screen and  (min-width: 650px){
+  img{
+    top: 0;
+  }
+}
+
+/*dots styling*/
+
+.dotstyle{
+  display: flex;
+  width: 100%;
+}
+.dotstyle ul {
+  padding: 0;
+  flex-direction: column;
+  display: flex;
+  position: relative;
+  margin: 0;
+
+}
+
+.dotstyle li {
+  position: relative;
+  margin: 1em;
+  cursor: pointer;
+  line-style-type: none;
+}
+
+.dotstyle li a {
+  top: 0;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  margin-top: 0.3em;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.3);
+  text-indent: -999em; /* make the text accessible to screen readers */
+  cursor: pointer;
+  position: absolute;
+}
+
+.dotstyle li a:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+  outline: none;
+}
+
+.dotstyle .active span{
+  color: #9a4dab;
+  margin-left: 1.8em;
+  font-weight: 500;
+}
+.dotstyle .active a {
+  width: 23px;
+  height: 23px;
+  background-color: rgba(255, 255, 255, 0.8);
+  margin-left: -3px;
+  margin-top: -0.2px;
+}
+
+.dotstyle ul span{
+  margin-left: 1.5em;
+  font-size: 0.9em;
+  color: transparent;
+}
+
+.dotstyle li:hover span{
+  color: rgba(255, 255, 255, 0.3);
+}
+

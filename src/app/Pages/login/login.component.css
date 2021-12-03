@@ -1,0 +1,46 @@
+.all{
+  text-align: -webkit-center;
+  height: 87vh;
+}
+.logindiv{
+  display: flex;
+  align-items: center;
+  background-color: #38363B;
+  border-radius: 18px;
+  margin-top: 13vh;
+  height: 80vh;
+}
+.dimensionimage{
+  margin-top: -2vh;
+  margin-left: -7vw;
+}
+img{
+  height: 100%;
+}
+h2{
+  color: #CDCCCD;
+  font-family: Montserrat;
+  padding-top: 3vh;
+}
+
+@media screen and (max-width: 1100px){
+  .all{
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 99vh;
+    width: -webkit-fill-available;
+  }
+  .logindiv{
+    justify-content: center;
+  }
+  .dimensionimage{
+    position: absolute;
+    opacity: 30%;
+    margin-top: -12vh;
+    display: flex;
+    justify-content: center;
+  }
+
+}

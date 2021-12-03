@@ -1,0 +1,55 @@
+.post{
+  font-family: Montserrat;
+  color: #9E9E9F;
+  font-size: larger;
+}
+.formulaire{
+  height: 90%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.formulaire::-webkit-scrollbar{
+  display: none;
+}
+
+.gradient-border {
+  height: 80vh;
+  padding: 2em;
+  --borderWidth: 2px;
+  background: #211F23;
+  position: relative;
+  border-radius: var(--borderWidth);
+}
+.gradient-border:after {
+  content: '';
+  position: absolute;
+  top: calc(-1 * var(--borderWidth));
+  left: calc(-1 * var(--borderWidth));
+  height: calc(100% + var(--borderWidth) * 2);
+  width: calc(100% + var(--borderWidth) * 2);
+  background: linear-gradient(60deg, #4a2f61, #f37055, #ef4e7b, #a166ab, #211F23, #383249, #3f3f84, #9a4dab);
+  border-radius: calc(2 * var(--borderWidth));
+  z-index: -1;
+  animation: animatedgradient 3s ease alternate infinite;
+  background-size: 300% 300%;
+}
+
+
+@keyframes animatedgradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+
+
